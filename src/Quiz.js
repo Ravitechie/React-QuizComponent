@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import QuizQuestion from './QuizQuestion.js';
+import QuizEnd from './QuizEnd.js';
 
 let quizData = require('./quiz_data.json')
 
 
-class Quiz extends Component{
+class Quiz extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {quiz_position: 1}
+        this.state = { quiz_position: 1 };
     }
-    render(){
+    render() {
         //console.log(quizData); 
-        return <div className ="QuizQuestion">           
-            <QuizQuestion  quiz_question ={quizData.quiz_questions[this.state.quiz_position-1]} />
-            </div>
+        const isQuizEnd = this.state.quiz_position - 1 === quizData.quiz_questions.length;
+        console.log(isQuizEnd);
+        return (
+            <div className="QuizQuestion">
+                {
+                    isQuizEnd ? <QuizEnd /> : <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
+                }
+            </div>)
     }
 }
 export default Quiz;
