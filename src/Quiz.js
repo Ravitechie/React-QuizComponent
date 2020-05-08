@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 
-const quizData = require('./quiz_data.json')
+let quizData = require('./quiz_data.json')
 
-const sampleJSON = {
-    "object": {
-      "name": "Pluralsight",
-      "number": 1,
-      "address": "India",
-      "website": "https://www.pluralsight.com/"
-    }
-  }
+
 class Quiz extends Component{
 
     constructor(props){
